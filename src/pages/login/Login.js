@@ -1,15 +1,18 @@
 import { Button } from 'components/button/Button';
 import { Input } from 'components/input/Input';
+import { Spinner } from 'components/spinner/Spinner';
 import { login } from 'mockapi/controllers/users';
 import React, { useState } from 'react';
 import * as styled from "./Login.styled";
 
-export const Login = () => {
+export const Login = ({ setUserId }) => {
 
     const [data, setData] = useState({
         username: '',
-        password: ''
+        password: '',
     });
+
+    const [loading, setLoading] = useState(false);
 
     const [errors, setErrors] = useState({});
 
@@ -17,9 +20,15 @@ export const Login = () => {
 
     const handleLogin = async () => {
         try {
+            setLoading(true)
             const response = await login(data.username, data.password);
+            console.log(response)
+            localStorage.setItem("userId", response.id);
+            setUserId(response.id);
+            setLoading(false)
             setErrors({});
         } catch (error) {
+            setLoading(false)
             setErrors(error);
         }
     };
@@ -31,7 +40,7 @@ export const Login = () => {
                 <styled.Headline>Login</styled.Headline>
                 <Input handleChange={handleChange} label="Username" value={data.username} name="username" error={errors.username} />
                 <Input handleChange={handleChange} type="password" label="Password" value={data.password} name="password" helperText="Password must be at least 6 characters" error={errors.password} />
-                <Button handleClick={handleLogin}>Login</Button>
+                <Button handleClick={handleLogin} loading={loading} >Login</Button>
             </styled.Wrapper>
         </styled.Container>
     )

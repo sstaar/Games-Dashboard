@@ -7,8 +7,9 @@ export const Button = styled.button`
     padding: 26px;
     text-align: center;
     border: none;
-    background-color: #00ABE4;
+    background-color: ${props => props.disabled ? '#dcdcdc' : "#00ABE4"};
     font-weight: 700;
     font-size: 22px;
     color: #FFF;
+    cursor: pointer;
 `;
