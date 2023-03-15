@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import * as styled from "./Navigation.styled";
 
 export const Navigation = ({ tabs = [], setUserId }) => {
+
     const [mini, setMini] = useState(false);
 
     const [selectedTab, setSelectedTab] = useState(0);
@@ -28,7 +29,7 @@ export const Navigation = ({ tabs = [], setUserId }) => {
                     <styled.Logout mini={mini} src='/logout.png' />
                 </styled.LogoutContainer>
             </styled.Nav>
-            <styled.Content>{tabs[selectedTab].content}</styled.Content>
+            <styled.Content >{tabs[selectedTab].content}</styled.Content>
         </styled.Container>
     )
 }
