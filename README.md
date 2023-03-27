@@ -1,27 +1,27 @@
 # Games Dashboard
-This is a small project that is still under development.
+Games Dashboard is a simple project built with ReactJS for the frontend and NodeJS for the backend. The project is designed to display game data in an easy-to-understand dashboard.
 
 ## Prerequisites
-To start the project, you need to have NodeJS installed on your system.                         
+To start the project, you need to have Docker installed on your system. Docker is an open-source platform that automates the deployment of applications inside containers.               
 
 ## Installation
-    After cloning the repository, run the following command in your terminal to install all the necessary packages:
-    ```npm install```
-
-## Usage
-    To start the project in development mode, run the following command:
-    ```npm start```
-    Please note that this project has not been tested for building and is not ready for production.
+    To run the project, follow these steps:
+        1- Clone the repository to your local machine.
+        2- Open a terminal window and navigate to the project directory.
+        3- Run the following command to start the application:
+            ```docker-compose up```
+    
+    This will start the application and download any necessary packages.
 
 ## Data
-    Currently, the data is not persistent, meaning that it will be reset to the initial data whenever the website is refreshed. However, the plan is to implement a simple API to store the mock data and make it persistent. I am working on this feature, and it will be available soon. Once implemented, the data will be persistent.
+    The data used in this project is saved and manipulated in a JSON file. No database is used since it is not required for this simple project. Please note that passwords are stored as plain text for this test project, and no heavy security measures are implemented. Some endpoints use a sleep function to delay the response so that the loading state can be displayed on the frontend.
 
 ## Authentication
-    Multiple usernames and passwords can be used for login, which are located in /src/mockapi/data/users.json. Here are a few examples:
+    Multiple usernames and passwords can be used for login, which are located in the `backend/controllers/users/users.json` file. Here are a few examples:
 
-        -Username: channanrr, Password: UTnl3p
-        -Username: rabramirp, Password: HVRipS4v
-        -Username: sworttrq, Password: clcSvMAWHkf
+        - Username: channanrr, Password: UTnl3p
+        - Username: rabramirp, Password: HVRipS4v
+        - Username: sworttrq, Password: clcSvMAWHkf
 
 ## Feedback
-All feedback is welcome! Please feel free to submit issues or pull requests on the GitHub repository.
+All feedback is welcome! Please feel free to submit issues or pull requests on the GitHub repository. We appreciate your contribution to the project!
